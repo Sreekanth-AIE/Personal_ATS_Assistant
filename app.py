@@ -13,7 +13,5 @@ evaluate = st.button("evaluate")
 if evaluate:
     if uploaded_pdf is not None:
         resume = cnv_pdf_to_text(uploaded_pdf)
-        print(resume)
-        print(prompt_template.format(resume=resume,job_desc=job_description,explanation="with complete explanation" if explanation else "without any explanation"),temperature)
         response = get_gemini_response(prompt_template.format(resume=resume,job_desc=job_description,explanation="with complete explanation" if explanation else "without any explanation"),temperature)
         st.write(response)
